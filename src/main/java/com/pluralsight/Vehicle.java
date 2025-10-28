@@ -1,8 +1,9 @@
 package com.pluralsight;
 
+// hold vehicle info
 public class Vehicle {
-    private int vin,year,odometer;
-    private String make,model,color,vehicleType;
+    private int vin, year, odometer;
+    private String make, model, color, vehicleType;
     private double price;
 
     public Vehicle(int vin, int year, int odometer, String make, String model, String color, String vehicleType, double price) {

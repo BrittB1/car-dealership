@@ -1,16 +1,17 @@
 package com.pluralsight;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+// Shows possible options and gets input from user; doesn't know anything about searching
 
 public class UserInterface {
 
     private Dealership dealership;
     private Scanner keyboard = null;
 
-    public UserInterface(){
-        this.keyboard= new Scanner(System.in);
+    public UserInterface() {
+        this.keyboard = new Scanner(System.in);
     }
 
     private void init() {
@@ -127,7 +128,7 @@ public class UserInterface {
         double price = keyboard.nextDouble();
         keyboard.nextLine();
 
-        Vehicle newVehicle = new Vehicle(vin,year,odometer,make,model,color,vehicleType,price);
+        Vehicle newVehicle = new Vehicle(vin, year, odometer, make, model, color, vehicleType, price);
 
         dealership.addVehicle(newVehicle);
 
@@ -150,6 +151,7 @@ public class UserInterface {
         }
         if (vehicleToDelete != null) {
             dealership.removeVehicle(vehicleToDelete);
+
             System.out.println("Vehicle removed successfully!");
 
         } else {
@@ -178,6 +180,13 @@ public class UserInterface {
                     vehicle.getColor(),
                     vehicle.getOdometer(),
                     vehicle.getPrice());
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+
+                Thread.currentThread().interrupt();
+            }
         }
         System.out.println("=".repeat(120) + "\n");
     }
@@ -189,7 +198,7 @@ public class UserInterface {
 
         List<Vehicle> results = dealership.getVehiclesByType(vehicleType);
 
-         displayVehicles(results);
+        displayVehicles(results);
     }
 
     private void processGetByMileageRange() {
@@ -201,7 +210,7 @@ public class UserInterface {
         int max = keyboard.nextInt();
         keyboard.nextLine();
 
-        List<Vehicle> results = dealership.getVehiclesByMileage(min,max);
+        List<Vehicle> results = dealership.getVehiclesByMileage(min, max);
         displayVehicles(results);
 
     }

@@ -3,6 +3,8 @@ package com.pluralsight;
 import java.util.ArrayList;
 import java.util.List;
 
+// knows how to search; runs logic and returns results to the UI so it can display them
+
 public class Dealership {
     private String dealershipName, address, phoneNum;
     private ArrayList<Vehicle> inventory;
@@ -13,7 +15,6 @@ public class Dealership {
         this.dealershipName = dealershipName;
         this.address = address;
         this.phoneNum = phoneNum;
-
 
     }
 
@@ -43,8 +44,8 @@ public class Dealership {
     public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
         List<Vehicle> results = new ArrayList<>();
 
-        for (Vehicle vehicle: inventory) {
-            if (vehicle.getMake().equalsIgnoreCase(make)&& vehicle.getModel().equalsIgnoreCase(model)) {
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getMake().equalsIgnoreCase(make) && vehicle.getModel().equalsIgnoreCase(model)) {
                 results.add(vehicle);
             }
         }
@@ -55,8 +56,8 @@ public class Dealership {
     public List<Vehicle> getVehiclesByYear(int min, int max) {
         List<Vehicle> results = new ArrayList<>();
 
-        for (Vehicle vehicle: inventory){
-            if (vehicle.getYear()>= min && vehicle.getYear()<=max){
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getYear() >= min && vehicle.getYear() <= max) {
                 results.add(vehicle);
             }
         }
@@ -67,8 +68,8 @@ public class Dealership {
     public List<Vehicle> getVehiclesByColor(String color) {
         List<Vehicle> results = new ArrayList<>();
 
-        for (Vehicle vehicle: inventory){
-            if (vehicle.getColor().equalsIgnoreCase(color)){
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getColor().equalsIgnoreCase(color)) {
                 results.add(vehicle);
             }
         }
@@ -79,8 +80,8 @@ public class Dealership {
     public List<Vehicle> getVehiclesByMileage(int min, int max) {
         List<Vehicle> results = new ArrayList<>();
 
-        for (Vehicle vehicle: inventory){
-            if (vehicle.getOdometer()>= min && vehicle.getOdometer()<=max) {
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getOdometer() >= min && vehicle.getOdometer() <= max) {
                 results.add(vehicle);
             }
         }
@@ -90,8 +91,8 @@ public class Dealership {
     public List<Vehicle> getVehiclesByType(String vehicleType) {
         List<Vehicle> results = new ArrayList<>();
 
-        for (Vehicle vehicle: inventory){
-            if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType)){
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType)) {
                 results.add(vehicle);
             }
         }
@@ -109,8 +110,8 @@ public class Dealership {
         this.inventory.add(vehicle);
     }
 
-    public void  removeVehicle(Vehicle vehicle) {
+    public void removeVehicle(Vehicle vehicle) {
 
-     this.inventory.remove(vehicle);
+        this.inventory.remove(vehicle);
     }
 }
